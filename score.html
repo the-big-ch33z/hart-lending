@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Property Readiness Score — Know Where You Stand | Hart Lending</title>
-<meta name="description" content="Get your free, personalised Property Readiness Score out of 100 across seven lending pillars — plus a step-by-step roadmap and a downloadable PDF report. No credit check, no commitment.">
+<title>Finance Finder — Your Free Readiness Score | Hart Lending</title>
+<meta name="description" content="Tell us what finance you're after — home loan, refinance, car, personal, debt consolidation or commercial — and get your free, personalised readiness score out of 100, a step-by-step roadmap, and a downloadable PDF. No credit check, no commitment.">
 <meta name="theme-color" content="#162626">
 <link rel="canonical" href="https://hartlending.com/score.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Property Readiness Score | Hart Lending">
-<meta property="og:description" content="Know where you stand before you fall in love with a property. Your free score out of 100, plus a roadmap to lift it.">
+<meta property="og:title" content="Finance Finder — Your Free Readiness Score | Hart Lending">
+<meta property="og:description" content="Find your finance starting point. Pick what you're after and get your free readiness score out of 100, plus a roadmap to lift it.">
 <meta property="og:url" content="https://hartlending.com/score.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hartlending.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Property Readiness Score", "item": "https://hartlending.com/score.html" }
+    { "@type": "ListItem", "position": 2, "name": "Finance Finder", "item": "https://hartlending.com/score.html" }
   ]
 }
 </script>
@@ -43,6 +43,17 @@
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
+      <div class="nav__dropdown" id="calc-dropdown">
+        <button class="nav__dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-controls="calc-menu">
+          Calculators
+          <svg class="nav__dropdown-caret" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg>
+        </button>
+        <ul class="nav__dropdown-menu" id="calc-menu" role="menu">
+          <li role="none"><a href="offset-calculator.html" role="menuitem">Offset Savings</a></li>
+          <li role="none"><a href="borrow-calculator.html" role="menuitem">Borrowing Power</a></li>
+          <li role="none"><a href="repayment-calculator.html" role="menuitem">Repayment</a></li>
+        </ul>
+      </div>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -58,6 +69,9 @@
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
+  <a href="offset-calculator.html">Offset Savings</a>
+  <a href="borrow-calculator.html">Borrowing Power</a>
+  <a href="repayment-calculator.html">Repayment</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
   <a href="contact.html" class="btn btn--primary">Book a Free Chat</a>
@@ -74,10 +88,10 @@
   <div class="hero__vignette"></div>
   <div class="container">
     <div class="hero__inner reveal in">
-      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Property Readiness Score</span></div>
-      <span class="eyebrow" style="color:var(--pale-sage)">Property Readiness Score</span>
-      <h1 class="h-display text-cream" style="margin-top:1rem">Know where you stand before<br>you fall in love with a property.</h1>
-      <p class="lead" style="max-width:640px;margin-top:1.4rem">Answer a few quick questions and get your personalised score out of 100 across the seven things that actually decide your approval — plus a step-by-step roadmap to lift it. No credit check, no commitment.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Finance Finder</span></div>
+      <span class="eyebrow" style="color:var(--pale-sage)">Finance Finder</span>
+      <h1 class="h-display text-cream" style="margin-top:1rem">Find your finance<br>starting point.</h1>
+      <p class="lead" style="max-width:640px;margin-top:1.4rem">Tell us what you're after — a home, a refinance, a car, a personal loan, debt consolidation or commercial property — and get your personalised readiness score out of 100, plus a step-by-step roadmap to lift it. Know where you stand before you fall in love with a property. No credit check, no commitment.</p>
     </div>
   </div>
 </section>
@@ -87,8 +101,22 @@
   <div class="container">
     <div class="score-tool">
 
+      <!-- CHOOSER (loan-type-first entry point) -->
+      <div id="chooser">
+        <div class="chooser-head">
+          <span class="eyebrow">Step 1 of 2</span>
+          <h2 class="chooser-q">What kind of finance are you after?</h2>
+          <p class="chooser-help">Pick the closest match and we'll tailor a few quick questions to it — then show your personalised readiness score and a roadmap.</p>
+        </div>
+        <div class="finder-grid" id="finder-grid" role="list"><!-- cards render here --></div>
+        <p class="quiz-disclaimer">This is an educational readiness indicator — not a credit assessment or financial advice. Your answers stay in your browser until you choose to share them.</p>
+      </div>
+
       <!-- QUIZ -->
-      <div id="quiz">
+      <div id="quiz" hidden>
+        <div class="quiz-topbar">
+          <button type="button" id="quiz-restart" class="quiz-restart">&larr; Change finance type</button>
+        </div>
         <div class="quiz-progress">
           <div class="bar"><i id="progress-fill"></i></div>
           <span class="label" id="progress-label">Question 1</span>
@@ -124,7 +152,7 @@
         </div>
 
         <div class="result-card">
-          <h3>Your seven pillars</h3>
+          <h3 id="pillars-heading">Your seven pillars</h3>
           <div class="result-meter" id="result-bars"><!-- bars render here --></div>
         </div>
 
@@ -185,6 +213,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
+
+        <p class="results-restart-wrap"><button type="button" id="results-restart" class="quiz-restart">&larr; Check a different finance type</button></p>
       </div>
 
     </div>
@@ -210,7 +240,7 @@
         </a>
         <p>Boutique mortgage broking on the Sunshine Coast — finance that feels like family.</p>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="score.html">Readiness Score</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="score.html">Readiness Score</a></li><li><a href="offset-calculator.html">Offset Calculator</a></li><li><a href="borrow-calculator.html">Borrowing Power</a></li><li><a href="repayment-calculator.html">Repayment Calculator</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="services.html#first-home">First Home Buyers</a></li><li><a href="services.html#investors">Investors</a></li><li><a href="services.html#refinance">Refinancing</a></li><li><a href="services.html#business">Business Finance</a></li></ul></div>
       <div><h4>Get in touch</h4><ul><li><a href="tel:+61422066339">0422 066 339</a></li><li><a href="mailto:kim@hartlending.com">kim@hartlending.com</a></li><li>Sunshine Coast, QLD</li><li>Australia-wide service</li></ul></div>
     </div>
@@ -218,7 +248,7 @@
       <span>© <span data-year>2026</span> Hart Lending. All rights reserved.</span>
       <span>Finance, done with heart.</span>
     </div>
-    <p class="footer__legal">The Property Readiness Score is an educational, illustrative indicator only. It is not a credit assessment, pre-approval, or financial or credit advice, and does not take into account your objectives, financial situation or needs. Hart Lending is a Credit Representative authorised under an Australian Credit Licence. Your full credit guide and our commission disclosure are provided before any application. Lending criteria, terms, conditions, fees and charges apply.</p>
+    <p class="footer__legal">This readiness score is an educational, illustrative indicator only. It is not a credit assessment, pre-approval, or financial or credit advice, and does not take into account your objectives, financial situation or needs. Hart Lending is a Credit Representative authorised under an Australian Credit Licence. Your full credit guide and our commission disclosure are provided before any application. Lending criteria, terms, conditions, fees and charges apply.</p>
   </div>
 </footer>
 

@@ -64,6 +64,17 @@
     <nav class="nav" aria-label="Primary">
       <a href="index.html" class="active">Home</a>
       <a href="services.html">Services</a>
+      <div class="nav__dropdown" id="calc-dropdown">
+        <button class="nav__dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-controls="calc-menu">
+          Calculators
+          <svg class="nav__dropdown-caret" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg>
+        </button>
+        <ul class="nav__dropdown-menu" id="calc-menu" role="menu">
+          <li role="none"><a href="offset-calculator.html" role="menuitem">Offset Savings</a></li>
+          <li role="none"><a href="borrow-calculator.html" role="menuitem">Borrowing Power</a></li>
+          <li role="none"><a href="repayment-calculator.html" role="menuitem">Repayment</a></li>
+        </ul>
+      </div>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -81,6 +92,9 @@
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
   <a href="index.html" class="active">Home</a>
   <a href="services.html">Services</a>
+  <a href="offset-calculator.html">Offset Savings</a>
+  <a href="borrow-calculator.html">Borrowing Power</a>
+  <a href="repayment-calculator.html">Repayment</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
   <a href="contact.html" class="btn btn--primary">Book a Free Chat</a>
@@ -180,31 +194,29 @@
       <div class="logo-marquee__viewport">
         <div class="logo-marquee__track">
           <!-- Set A -->
-          <img src="assets/logos/cba.svg" alt="Commonwealth Bank" class="logo-marquee__logo" width="132" height="36">
-          <img src="assets/logos/westpac.svg" alt="Westpac" class="logo-marquee__logo" width="112" height="36">
-          <img src="assets/logos/nab.svg" alt="NAB" class="logo-marquee__logo" width="56" height="36">
-          <img src="assets/logos/anz.svg" alt="ANZ" class="logo-marquee__logo" width="56" height="36">
-          <img src="assets/logos/macquarie.svg" alt="Macquarie" class="logo-marquee__logo" width="142" height="36">
-          <img src="assets/logos/ing.svg" alt="ING" class="logo-marquee__logo" width="52" height="36">
-          <img src="assets/logos/suncorp.svg" alt="Suncorp" class="logo-marquee__logo" width="112" height="36">
-          <img src="assets/logos/bankwest.svg" alt="Bankwest" class="logo-marquee__logo" width="122" height="36">
-          <img src="assets/logos/amp.svg" alt="AMP" class="logo-marquee__logo" width="56" height="36">
-          <img src="assets/logos/great-southern.svg" alt="Great Southern Bank" class="logo-marquee__logo" width="200" height="36">
-          <img src="assets/logos/auswide.svg" alt="Auswide Bank" class="logo-marquee__logo" width="108" height="36">
-          <img src="assets/logos/bank-australia.svg" alt="Bank Australia" class="logo-marquee__logo" width="192" height="36">
+          <img src="assets/logos/cba.svg" alt="Commonwealth Bank" class="logo-marquee__logo" width="49" height="34">
+          <img src="assets/logos/westpac.svg" alt="Westpac" class="logo-marquee__logo" width="172" height="34">
+          <img src="assets/logos/nab.svg" alt="NAB" class="logo-marquee__logo" width="68" height="34">
+          <img src="assets/logos/anz.svg" alt="ANZ" class="logo-marquee__logo" width="153" height="34">
+          <img src="assets/logos/macquarie.svg" alt="Macquarie" class="logo-marquee__logo" width="194" height="34">
+          <img src="assets/logos/ing.svg" alt="ING" class="logo-marquee__logo" width="101" height="34">
+          <img src="assets/logos/amp.svg" alt="AMP" class="logo-marquee__logo" width="116" height="34">
+          <img src="assets/logos/suncorp.png" alt="Suncorp Bank" class="logo-marquee__logo" width="168" height="34">
+          <img src="assets/logos/bankwest.png" alt="Bankwest" class="logo-marquee__logo" width="82" height="34">
+          <img src="assets/logos/auswide.svg" alt="Auswide Bank" class="logo-marquee__logo" width="48" height="34">
+          <img src="assets/logos/great-southern.svg" alt="Great Southern Bank" class="logo-marquee__logo" width="93" height="34">
           <!-- Set B: duplicate for seamless loop, hidden from assistive tech -->
-          <img src="assets/logos/cba.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="132" height="36">
-          <img src="assets/logos/westpac.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="112" height="36">
-          <img src="assets/logos/nab.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="56" height="36">
-          <img src="assets/logos/anz.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="56" height="36">
-          <img src="assets/logos/macquarie.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="142" height="36">
-          <img src="assets/logos/ing.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="52" height="36">
-          <img src="assets/logos/suncorp.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="112" height="36">
-          <img src="assets/logos/bankwest.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="122" height="36">
-          <img src="assets/logos/amp.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="56" height="36">
-          <img src="assets/logos/great-southern.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="200" height="36">
-          <img src="assets/logos/auswide.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="108" height="36">
-          <img src="assets/logos/bank-australia.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="192" height="36">
+          <img src="assets/logos/cba.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="49" height="34">
+          <img src="assets/logos/westpac.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="172" height="34">
+          <img src="assets/logos/nab.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="68" height="34">
+          <img src="assets/logos/anz.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="153" height="34">
+          <img src="assets/logos/macquarie.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="194" height="34">
+          <img src="assets/logos/ing.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="101" height="34">
+          <img src="assets/logos/amp.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="116" height="34">
+          <img src="assets/logos/suncorp.png" alt="" aria-hidden="true" class="logo-marquee__logo" width="168" height="34">
+          <img src="assets/logos/bankwest.png" alt="" aria-hidden="true" class="logo-marquee__logo" width="82" height="34">
+          <img src="assets/logos/auswide.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="48" height="34">
+          <img src="assets/logos/great-southern.svg" alt="" aria-hidden="true" class="logo-marquee__logo" width="93" height="34">
         </div>
       </div>
     </div>
@@ -379,6 +391,9 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="score.html">Readiness Score</a></li>
+          <li><a href="offset-calculator.html">Offset Calculator</a></li>
+          <li><a href="borrow-calculator.html">Borrowing Power</a></li>
+          <li><a href="repayment-calculator.html">Repayment Calculator</a></li>
         </ul>
       </div>
       <div>

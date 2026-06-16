@@ -42,6 +42,17 @@
     <nav class="nav" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
+      <div class="nav__dropdown" id="calc-dropdown">
+        <button class="nav__dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-controls="calc-menu">
+          Calculators
+          <svg class="nav__dropdown-caret" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg>
+        </button>
+        <ul class="nav__dropdown-menu" id="calc-menu" role="menu">
+          <li role="none"><a href="offset-calculator.html" role="menuitem">Offset Savings</a></li>
+          <li role="none"><a href="borrow-calculator.html" role="menuitem">Borrowing Power</a></li>
+          <li role="none"><a href="repayment-calculator.html" role="menuitem">Repayment</a></li>
+        </ul>
+      </div>
       <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -57,6 +68,9 @@
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
+  <a href="offset-calculator.html">Offset Savings</a>
+  <a href="borrow-calculator.html">Borrowing Power</a>
+  <a href="repayment-calculator.html">Repayment</a>
   <a href="about.html" class="active">About</a>
   <a href="contact.html">Contact</a>
   <a href="contact.html" class="btn btn--primary">Book a Free Chat</a>
@@ -158,19 +172,19 @@
       <h2 class="h2 text-cream">40+ lenders. One person who answers to you.</h2>
       <p class="lead" style="margin-top:1rem">We compare across 40+ lenders — including the ones the big banks don't want you to know about.</p>
     </div>
-    <div class="lender-panel reveal">
-      <div class="lender-chip">CBA</div>
-      <div class="lender-chip">Westpac</div>
-      <div class="lender-chip">NAB</div>
-      <div class="lender-chip">ANZ</div>
-      <div class="lender-chip">Macquarie</div>
-      <div class="lender-chip">ING</div>
-      <div class="lender-chip">Suncorp</div>
-      <div class="lender-chip">Bankwest</div>
-      <div class="lender-chip">St.George</div>
-      <div class="lender-chip">AMP</div>
-      <div class="lender-chip">Pepper</div>
-      <div class="lender-chip">+ 30 more</div>
+    <div class="logo-strip reveal" aria-label="A selection of the 40+ lenders we compare across">
+      <img src="assets/logos/cba.svg" alt="Commonwealth Bank" width="46" height="32">
+      <img src="assets/logos/westpac.svg" alt="Westpac" width="162" height="32">
+      <img src="assets/logos/nab.svg" alt="NAB" width="64" height="32">
+      <img src="assets/logos/anz.svg" alt="ANZ" width="144" height="32">
+      <img src="assets/logos/macquarie.svg" alt="Macquarie" width="182" height="32">
+      <img src="assets/logos/ing.svg" alt="ING" width="95" height="32">
+      <img src="assets/logos/amp.svg" alt="AMP" width="109" height="32">
+      <img src="assets/logos/suncorp.png" alt="Suncorp Bank" width="168" height="32">
+      <img src="assets/logos/bankwest.png" alt="Bankwest" width="77" height="32">
+      <img src="assets/logos/auswide.svg" alt="Auswide Bank" width="45" height="32">
+      <img src="assets/logos/great-southern.svg" alt="Great Southern Bank" width="87" height="32">
+      <img src="assets/logos/bank-australia.png" alt="Bank Australia" width="114" height="32">
     </div>
   </div>
 </section>
@@ -204,7 +218,7 @@
         </a>
         <p>Boutique mortgage broking on the Sunshine Coast — finance that feels like family.</p>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="score.html">Readiness Score</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="score.html">Readiness Score</a></li><li><a href="offset-calculator.html">Offset Calculator</a></li><li><a href="borrow-calculator.html">Borrowing Power</a></li><li><a href="repayment-calculator.html">Repayment Calculator</a></li></ul></div>
       <div><h4>Services</h4><ul><li><a href="services.html#first-home">First Home Buyers</a></li><li><a href="services.html#investors">Investors</a></li><li><a href="services.html#refinance">Refinancing</a></li><li><a href="services.html#business">Business Finance</a></li></ul></div>
       <div><h4>Get in touch</h4><ul><li><a href="tel:+61422066339">0422 066 339</a></li><li><a href="mailto:kim@hartlending.com">kim@hartlending.com</a></li><li>Sunshine Coast, QLD</li><li>Australia-wide service</li></ul></div>
     </div>

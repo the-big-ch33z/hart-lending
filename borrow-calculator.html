@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Borrowing Power Calculator — How Much Can You Borrow? | Hart Lending</title>
+<meta name="description" content="Estimate your borrowing power in seconds. Enter your income and expenses to see how much a lender might approve. Free calculator from Hart Lending.">
+<meta name="theme-color" content="#162626">
+<link rel="canonical" href="https://hartlending.com/borrow-calculator.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hart Lending">
+<meta property="og:title" content="Borrowing Power Calculator | Hart Lending">
+<meta property="og:description" content="See how much you might be able to borrow based on your income, expenses and dependants. Free real-time calculator.">
+<meta property="og:url" content="https://hartlending.com/borrow-calculator.html">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<link rel="preload" href="css/styles.css" as="style">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/calculators.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hartlending.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Borrowing Power Calculator", "item": "https://hartlending.com/borrow-calculator.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="header" id="header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="Hart Lending home">
+      <svg class="brand__mark" viewBox="0 0 100 100" fill="none" aria-hidden="true" style="color:var(--sage)">
+        <path d="M50 84C22 62 9 46 9 30C9 17 19 9 30 9C39 9 46 14 50 23C54 14 61 9 70 9C81 9 91 17 91 30C91 46 78 62 50 84Z" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/>
+        <path d="M67 41C61 52 56 64 50 80M67 41C72 34 81 34 85 39C80 45 71 46 67 41ZM62 53C67 47 75 48 78 53C73 58 65 58 62 53ZM57 65C62 60 69 61 72 66C67 70 60 70 57 65ZM63 50C58 44 51 44 47 49C52 54 60 55 63 50ZM58 62C53 57 46 57 42 62C47 67 54 67 58 62Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
+      <span class="brand__text">HART<small>Lending</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <div class="nav__dropdown" id="calc-dropdown">
+        <button class="nav__dropdown-btn" aria-haspopup="true" aria-expanded="false" aria-controls="calc-menu">
+          Calculators
+          <svg class="nav__dropdown-caret" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg>
+        </button>
+        <ul class="nav__dropdown-menu" id="calc-menu" role="menu">
+          <li role="none"><a href="offset-calculator.html" role="menuitem">Offset Savings</a></li>
+          <li role="none"><a href="borrow-calculator.html" role="menuitem">Borrowing Power</a></li>
+          <li role="none"><a href="repayment-calculator.html" role="menuitem">Repayment</a></li>
+        </ul>
+      </div>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header__cta">
+      <a href="contact.html" class="btn btn--primary">Book a Chat</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="offset-calculator.html">Offset Savings</a>
+  <a href="borrow-calculator.html">Borrowing Power</a>
+  <a href="repayment-calculator.html">Repayment</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn--primary">Book a Free Chat</a>
+</nav>
+
+<main>
+
+<!-- ========== HERO ========== -->
+<section class="hero hero--page">
+  <div class="hero__bg" style="background:radial-gradient(ellipse at 70% 20%, #1d3232, var(--forest) 60%)"></div>
+  <div class="hero__leaves" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" fill="none" stroke="var(--sage)" stroke-width="1.2">
+      <path d="M150 140c-60 40-90 110-90 190M110 230c30-10 70 0 95 30"/>
+      <path d="M1050 540c-60-40-90-110-90-190M1090 450c30 10 70 0 95-30"/>
+    </svg>
+  </div>
+  <div class="hero__vignette"></div>
+  <div class="container">
+    <div class="hero__inner reveal in">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <a href="borrow-calculator.html">Calculators</a> / <span>Borrowing Power</span></div>
+      <span class="eyebrow" style="color:var(--pale-sage)">Free Calculator</span>
+      <h1 class="h-display text-cream" style="margin-top:1rem">How much could<br>you borrow?</h1>
+      <p class="lead" style="max-width:640px;margin-top:1.4rem">Enter your income and expenses to get an instant estimate of your borrowing power — the number a lender calculates when deciding your maximum loan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CALCULATOR ========== -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="calc-tool">
+      <div class="calc-layout">
+
+        <!-- ---- Form column ---- -->
+        <div class="calc-form-col">
+          <div class="calc-form-card">
+            <div class="calc-section-head">
+              <h2>Your financial picture</h2>
+              <p>Results update as you type — no sign-up needed.</p>
+            </div>
+
+            <!-- Employment type -->
+            <div class="calc-field">
+              <label>Employment type</label>
+              <div class="radio-group">
+                <div class="radio-opt">
+                  <input type="radio" id="emp-payg" name="employment" value="payg" checked>
+                  <label for="emp-payg">PAYG</label>
+                </div>
+                <div class="radio-opt">
+                  <input type="radio" id="emp-self" name="employment" value="self-employed">
+                  <label for="emp-self">Self Employed</label>
+                </div>
+              </div>
+            </div>
+
+            <div id="payg-fields">
+
+            <!-- Loan purpose -->
+            <div class="calc-field">
+              <label>Loan purpose</label>
+              <div class="radio-group">
+                <div class="radio-opt">
+                  <input type="radio" id="purpose-owner" name="purpose" value="owner" checked>
+                  <label for="purpose-owner">Owner-occupier</label>
+                </div>
+                <div class="radio-opt">
+                  <input type="radio" id="purpose-invest" name="purpose" value="investment">
+                  <label for="purpose-invest">Investment property</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Applicants -->
+            <div class="calc-field">
+              <label>Applicants</label>
+              <div class="radio-group">
+                <div class="radio-opt">
+                  <input type="radio" id="applicants-single" name="applicants" value="single" checked>
+                  <label for="applicants-single">Just me</label>
+                </div>
+                <div class="radio-opt">
+                  <input type="radio" id="applicants-couple" name="applicants" value="couple">
+                  <label for="applicants-couple">Me &amp; someone else</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gross income -->
+            <div class="calc-field" id="gross-income-field">
+              <label for="gross-income">Your gross annual income <span style="color:#c0563f">*</span></label>
+              <div class="input-wrap">
+                <span class="input-symbol">$</span>
+                <input id="gross-income" name="gross-income" type="number" inputmode="decimal" min="1" step="1000" placeholder="e.g. 95,000" autocomplete="off">
+              </div>
+              <span class="field-error" role="alert"></span>
+              <span class="field-note">Before tax. Include salary, bonuses and regular overtime.</span>
+            </div>
+
+            <!-- Partner income (conditional) -->
+            <div class="calc-field" id="partner-income-field" hidden>
+              <label for="partner-income">Partner's gross annual income</label>
+              <div class="input-wrap">
+                <span class="input-symbol">$</span>
+                <input id="partner-income" name="partner-income" type="number" inputmode="decimal" min="0" step="1000" placeholder="e.g. 85,000" autocomplete="off">
+              </div>
+              <span class="field-note">Before tax. Leave at 0 if partner has no income.</span>
+            </div>
+
+            <!-- Monthly living expenses -->
+            <div class="calc-field">
+              <label for="monthly-living">Monthly living expenses</label>
+              <div class="input-wrap">
+                <span class="input-symbol">$</span>
+                <input id="monthly-living" name="monthly-living" type="number" inputmode="decimal" min="0" step="100" placeholder="e.g. 3,000" autocomplete="off">
+              </div>
+              <span class="field-note">Rent, groceries, utilities, transport, subscriptions. Lenders use a minimum benchmark — we'll apply whichever is higher.</span>
+            </div>
+
+            <!-- Other loan repayments -->
+            <div class="calc-field">
+              <label for="other-repayments">Other monthly loan repayments</label>
+              <div class="input-wrap">
+                <span class="input-symbol">$</span>
+                <input id="other-repayments" name="other-repayments" type="number" inputmode="decimal" min="0" step="100" placeholder="0" autocomplete="off">
+              </div>
+              <span class="field-note">Car loans, personal loans, HECS. Leave at 0 if none.</span>
+            </div>
+
+            <!-- Credit card limit -->
+            <div class="calc-field">
+              <label for="credit-card-limit">Total credit card limit</label>
+              <div class="input-wrap">
+                <span class="input-symbol">$</span>
+                <input id="credit-card-limit" name="credit-card-limit" type="number" inputmode="decimal" min="0" step="500" placeholder="0" autocomplete="off">
+              </div>
+              <span class="field-note">The combined limit on all cards — not the balance. Lenders treat the full limit as a potential commitment.</span>
+            </div>
+
+            <!-- Dependants -->
+            <div class="calc-field">
+              <label for="dependants">Number of dependants</label>
+              <select id="dependants" name="dependants" class="calc-select">
+                <option value="0" selected>0 — No dependants</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4 or more</option>
+              </select>
+              <span class="field-note">Children or other financial dependants.</span>
+            </div>
+
+            </div><!-- /#payg-fields -->
+
+          </div>
+        </div>
+
+        <!-- ---- Results column ---- -->
+        <div class="calc-results-col">
+          <div class="results-card" id="results-card" aria-live="polite" aria-atomic="true">
+
+            <!-- Self-employed panel (shown when Self Employed is selected) -->
+            <div class="self-emp-panel" id="self-emp-panel" hidden>
+              <div class="self-emp-panel__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <h3>Self-employed borrowing is always unique</h3>
+              <p>Lenders assess self-employed income differently — typically using 1–2 years of tax returns, which can significantly change what you can borrow.</p>
+              <p>Reach out to Kim for a personalised assessment tailored to your situation.</p>
+              <a href="contact.html" class="btn btn--primary btn--block self-emp-panel__cta">Chat with Kim
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a href="tel:+61422066339" class="self-emp-panel__phone">0422 066 339</a>
+            </div>
+
+            <div id="results-main">
+            <div class="results-card__eyebrow">Estimated borrowing power</div>
+
+            <div class="result-hero">
+              <div class="result-hero__label">You may be able to borrow up to</div>
+              <div class="result-hero__value is-empty" id="r-borrow-power">—</div>
+              <div class="result-hero__sub">Based on APRA stress-test rate (9% p.a.)</div>
+            </div>
+
+            <div class="result-rows">
+              <div class="result-row result-row--divider">
+                <span class="result-row__label">Est. monthly repayment</span>
+                <span class="result-row__value is-empty" id="r-repayment">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Estimated net monthly income</span>
+                <span class="result-row__value is-empty" id="r-net-income">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Available for repayments</span>
+                <span class="result-row__value is-empty is-positive" id="r-available">—</span>
+              </div>
+            </div>
+
+            <!-- Monthly income breakdown chart -->
+            <div class="chart-wrap">
+              <span class="chart-title">Monthly income breakdown</span>
+              <div class="chart-container" style="margin-top:0.6rem">
+                <canvas class="chart-canvas" id="borrow-chart" style="height:72px" aria-hidden="true"></canvas>
+              </div>
+            </div>
+
+            <div class="result-insufficient" id="r-insufficient" role="alert">
+              Your estimated expenses exceed your income at the lender's benchmark. Reducing debts or increasing income would improve your borrowing capacity — book a chat to explore your options.
+            </div>
+
+            <p class="calc-disclaimer">
+              Estimates assume a 30-year loan term assessed at 9% p.a. (the APRA serviceability buffer). Net income approximated at 72% of gross. Lenders apply their own benchmark living expenses (HEM) — we use $2,000/month single or $3,500/month couple as a floor, plus $600 per dependant. Credit card limits are assessed at 3.1% per annum. Repayment shown at 6% p.a. indicative rate. Not financial advice — for a precise assessment tailored to your situation, speak with Kim.
+            </p>
+
+            <div class="results-cta">
+              <p>Ready to take the next step towards your property goals?</p>
+              <a href="contact.html" class="btn btn--primary btn--block">Book a free chat
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <button class="btn btn--export" id="btn-export-pdf" disabled aria-label="Download PDF report">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF report
+              </button>
+            </div>
+
+            </div><!-- /#results-main -->
+
+          </div>
+        </div>
+
+      </div><!-- /.calc-layout -->
+    </div><!-- /.calc-tool -->
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="index.html" aria-label="Hart Lending home">
+          <svg class="brand__mark" viewBox="0 0 100 100" fill="none" aria-hidden="true" style="color:var(--sage)">
+            <path d="M50 84C22 62 9 46 9 30C9 17 19 9 30 9C39 9 46 14 50 23C54 14 61 9 70 9C81 9 91 17 91 30C91 46 78 62 50 84Z" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/>
+            <path d="M67 41C61 52 56 64 50 80M67 41C72 34 81 34 85 39C80 45 71 46 67 41ZM62 53C67 47 75 48 78 53C73 58 65 58 62 53ZM57 65C62 60 69 61 72 66C67 70 60 70 57 65ZM63 50C58 44 51 44 47 49C52 54 60 55 63 50ZM58 62C53 57 46 57 42 62C47 67 54 67 58 62Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+          <span class="brand__text" style="color:var(--cream)">HART<small>Lending</small></span>
+        </a>
+        <p>Boutique mortgage broking on the Sunshine Coast — finance that feels like family.</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="score.html">Readiness Score</a></li><li><a href="offset-calculator.html">Offset Calculator</a></li><li><a href="borrow-calculator.html">Borrowing Power</a></li><li><a href="repayment-calculator.html">Repayment Calculator</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="services.html#first-home">First Home Buyers</a></li><li><a href="services.html#investors">Investors</a></li><li><a href="services.html#refinance">Refinancing</a></li><li><a href="services.html#business">Business Finance</a></li></ul></div>
+      <div><h4>Get in touch</h4><ul><li><a href="tel:+61422066339">0422 066 339</a></li><li><a href="mailto:kim@hartlending.com">kim@hartlending.com</a></li><li>Sunshine Coast, QLD</li><li>Australia-wide service</li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Hart Lending. All rights reserved.</span>
+      <span>Finance, done with heart.</span>
+    </div>
+    <p class="footer__legal">
+      This calculator provides estimates for illustrative purposes only and does not constitute financial advice. Results are based on simplified assumptions including an approximate tax rate and APRA stress-test methodology — actual lender assessments will vary. Hart Lending is a Credit Representative authorised under an Australian Credit Licence. Your full credit guide and our commission disclosure are provided before any application. Lending criteria, terms, conditions, fees and charges apply.
+    </p>
+  </div>
+</footer>
+
+<div class="sticky-cta"><a href="contact.html" class="btn btn--primary">Book a Free Chat</a></div>
+
+<script src="js/main.js" defer></script>
+<script src="js/borrow-calculator.js" defer></script>
+</body>
+</html>

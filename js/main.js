@@ -39,6 +39,42 @@
     });
   }
 
+  /* ---- Desktop nav dropdown: click / keyboard toggle ---- */
+  var dropdownBtn = document.querySelector(".nav__dropdown-btn");
+  var dropdownMenu = document.getElementById("calc-menu");
+  var calcDropdown = document.getElementById("calc-dropdown");
+  if (dropdownBtn && dropdownMenu) {
+    dropdownBtn.addEventListener("click", function () {
+      var isOpen = dropdownMenu.classList.toggle("open");
+      dropdownBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    document.addEventListener("click", function (e) {
+      if (calcDropdown && !calcDropdown.contains(e.target)) {
+        dropdownMenu.classList.remove("open");
+        dropdownBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && dropdownMenu.classList.contains("open")) {
+        dropdownMenu.classList.remove("open");
+        dropdownBtn.setAttribute("aria-expanded", "false");
+        dropdownBtn.focus();
+      }
+    });
+  }
+
+  /* ---- Mark Calculators dropdown active on calculator pages ---- */
+  var calcPages = ["offset-calculator.html", "borrow-calculator.html"];
+  var currentPage = window.location.pathname.split("/").pop() || "index.html";
+  if (calcPages.indexOf(currentPage) !== -1) {
+    if (calcDropdown) calcDropdown.classList.add("active");
+    var menuLink = dropdownMenu ? dropdownMenu.querySelector('a[href="' + currentPage + '"]') : null;
+    if (menuLink) menuLink.classList.add("active");
+    document.querySelectorAll('.mobile-nav a[href="' + currentPage + '"]').forEach(function (a) {
+      a.classList.add("active");
+    });
+  }
+
   /* ---- Scroll reveal via IntersectionObserver ---- */
   var reveals = document.querySelectorAll(".reveal");
   if (prefersReduced || !("IntersectionObserver" in window)) {

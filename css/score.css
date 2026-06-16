@@ -1,11 +1,44 @@
 /* =========================================================================
-   HART LENDING — Property Readiness Score
-   Styles for the quiz wizard, score gauge, results, roadmap & PDF report.
-   Loaded only on score.html; depends on css/styles.css design tokens.
+   HART LENDING — Finance Finder
+   Styles for the loan-type chooser, quiz wizard, score gauge, results,
+   roadmap & PDF report. Loaded only on score.html; depends on the
+   css/styles.css design tokens.
    ========================================================================= */
 
 /* ---------- Tool shell ---------- */
 .score-tool { max-width: 760px; margin-inline: auto; }
+
+/* ---------- Chooser (loan-type-first entry point) ---------- */
+.chooser-head { text-align: center; margin-bottom: 1.8rem; }
+.chooser-q { font-size: clamp(1.5rem, 2.8vw, 2.1rem); margin: 0.6rem 0 0.5rem; color: var(--forest); }
+.chooser-help { color: #5a6657; font-size: 0.98rem; max-width: 540px; margin: 0 auto; }
+
+.finder-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+.finder-card { display: flex; flex-direction: column; align-items: flex-start; gap: 0.55rem;
+  text-align: left; padding: 1.25rem 1.2rem; border: 1.5px solid rgba(123, 140, 111, 0.32);
+  border-radius: 14px; background: var(--white); color: var(--forest); cursor: pointer;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.15s var(--ease); }
+.finder-card:hover { border-color: var(--sage); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.finder-card:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+.finder-card:active { transform: translateY(0); }
+.finder-card__icon { display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; border-radius: 11px; background: rgba(var(--sage-rgb), 0.12); color: var(--sage); }
+.finder-card__icon svg { width: 22px; height: 22px; }
+.finder-card__label { font-size: 1.02rem; font-weight: 600; line-height: 1.25; }
+.finder-card__desc { font-size: 0.85rem; color: #6b7661; }
+
+@media (max-width: 720px) { .finder-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 440px) { .finder-grid { grid-template-columns: 1fr; }
+  .finder-card { flex-direction: row; align-items: center; gap: 0.9rem; }
+  .finder-card__icon { flex-shrink: 0; } }
+
+/* ---------- Restart / back-to-chooser link ---------- */
+.quiz-topbar { margin-bottom: 1rem; }
+.quiz-restart { background: none; border: none; padding: 0.3rem 0; cursor: pointer;
+  font-size: 0.86rem; font-weight: 600; color: var(--sage); letter-spacing: 0.01em;
+  transition: color 0.2s var(--ease); }
+.quiz-restart:hover { color: var(--forest); text-decoration: underline; }
+.results-restart-wrap { text-align: center; margin-top: 1.6rem; }
 
 /* ---------- Quiz wizard ---------- */
 .quiz-progress { margin-bottom: 1.6rem; }
