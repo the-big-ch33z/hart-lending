@@ -160,6 +160,7 @@
 .unlock-done strong { color: var(--forest); }
 
 .post-cta { text-align: center; margin-top: 2.4rem; }
+.post-cta__lead { max-width: 540px; margin: 0 auto 1.1rem; color: var(--muted-sage); font-size: .98rem; line-height: 1.55; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 540px) {

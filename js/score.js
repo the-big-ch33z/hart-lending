@@ -27,6 +27,63 @@
   }
 
   /* ----------------------------------------------------------------------
+     Booking — Calendly scheduling link.
+     Once the readiness score is complete we surface a "Book In A Call"
+     button. The invitee's name/email (after lead capture) and a summary of
+     their readiness result are prefilled into the booking via Calendly's
+     query-param prefill, so Kim has full context before the call.
+     ▸ Replace CALENDLY_URL below with the real Calendly event link.
+       e.g. "https://calendly.com/hartlending/discovery-call"
+     ---------------------------------------------------------------------- */
+  var CALENDLY_URL = "https://calendly.com/kim-hart-astutefinancial";
+
+  // Plain-text summary of the current readiness result, passed to Calendly.
+  function buildScoreSummary() {
+    if (!result) return "";
+    var lines = [];
+    lines.push((active ? active.pdfTitle : "Readiness") + " score: " +
+      result.overall + "/100 (" + result.band.name + ")");
+    var pills = result.pillars.map(function (p) { return p.label + " " + p.value; }).join(", ");
+    lines.push("Pillars — " + pills);
+    if (result.roadmap && result.roadmap.length) {
+      var top = result.roadmap.slice(0, 3).map(function (t) { return t.title; }).join("; ");
+      lines.push("Top focus areas: " + top);
+    }
+    return lines.join("\n");
+  }
+
+  // Build a prefilled Calendly URL. name/email are optional (filled after
+  // lead capture); the score summary is always attached.
+  function buildCalendlyURL(fullName, email) {
+    if (!CALENDLY_URL) return "contact.html";
+    var params = [];
+    if (fullName) params.push("name=" + encodeURIComponent(fullName));
+    if (email) params.push("email=" + encodeURIComponent(email));
+    // a1 = answer to Calendly's first custom question (commonly "anything to
+    // help us prepare?"). Harmlessly ignored if the event has no such question.
+    params.push("a1=" + encodeURIComponent(buildScoreSummary()));
+    params.push("utm_source=readiness-score");
+    params.push("utm_medium=website");
+    params.push("utm_campaign=" + encodeURIComponent(active ? active.id : "home"));
+    if (result) {
+      params.push("utm_content=" + encodeURIComponent(result.overall + "-" + result.band.name));
+    }
+    return CALENDLY_URL + (CALENDLY_URL.indexOf("?") === -1 ? "?" : "&") + params.join("&");
+  }
+
+  // Point the post-results CTA at the (prefilled) Calendly booking link.
+  function setBookingLink(fullName, email) {
+    var cta = el("#post-cta");
+    if (!cta) return;
+    var link = cta.querySelector("a");
+    if (link && CALENDLY_URL) {
+      link.href = buildCalendlyURL(fullName, email);
+      link.target = "_blank";
+      link.rel = "noopener";
+    }
+  }
+
+  /* ----------------------------------------------------------------------
      HOME product — pillars + questions.
      Pillars: internal 0–100 each, combined by weight into the /100 score.
      Weights reflect what actually drives an Australian home-loan approval.
@@ -1490,6 +1547,12 @@
       el("#target-callout").innerHTML = "You're <strong>" + gap + " point" + (gap === 1 ? "" : "s") +
         "</strong> away from the next level (<strong>" + r.band.target + "/100</strong>). The steps below are ordered by the difference they'll make.";
     }
+
+    // Booking — the score is complete, so surface "Book In A Call" right away,
+    // prefilled with the result summary. Enriched with name/email after capture.
+    setBookingLink();
+    var postCta = el("#post-cta");
+    if (postCta) postCta.hidden = false;
   }
 
   function animateGauge(target) {
@@ -1574,6 +1637,7 @@
       if (btn) { btn.disabled = true; btn.innerHTML = "Preparing your report…"; }
 
       var nameVal = (form.querySelector('[name="name"]') || {}).value || "there";
+      var emailVal = ((form.querySelector('[name="email"]') || {}).value || "").trim();
       var firstName = nameVal.trim().split(" ")[0] || "there";
 
       // POST to endpoint if configured (Formspree / CRM webhook). Non-blocking.
@@ -1589,7 +1653,7 @@
       }
 
       // Unlock everything on-page
-      unlockResults(firstName);
+      unlockResults(firstName, nameVal.trim(), emailVal);
 
       // Generate & download the PDF
       generatePDF(nameVal.trim()).then(function () {
@@ -1600,7 +1664,7 @@
     });
   }
 
-  function unlockResults(firstName) {
+  function unlockResults(firstName, fullName, email) {
     var lock = el("#lock-card");
     if (lock) lock.hidden = true;
     var locked = el("#roadmap-locked");
@@ -1610,6 +1674,8 @@
       el("#unlock-name").textContent = firstName;
       done.hidden = false;
     }
+    // Now that we have the invitee's details, enrich the booking prefill.
+    setBookingLink(fullName, email);
     var cta = el("#post-cta");
     if (cta) cta.hidden = false;
   }
